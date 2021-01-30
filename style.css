@@ -133,7 +133,34 @@ nav ul li a:hover, a.active{
     justify-content: center;
     background-color: white;
     padding: 50px;
-    /* margin: 10px 10px; */
+    width: 60%;
     margin-top: 50px;
     text-align: center;
+    border-radius: 15px;
+}
+.confirm{
+    color:rgb(38, 16, 182);
+    font-family: 'Ubuntu', sans-serif;
+}
+.secondPage{
+    font-weight: bold;
+}
+#finalPart{
+    display: none;
+    justify-content: center;
+    background-color: white;
+    padding: 50px;
+    width: 60%;
+    margin-top: 50px;
+    text-align: center;
+    border-radius: 15px;
+}
+.SuccessSign{
+    font-size: 60px;
+    color: green;
+    margin-bottom: 25px;
+}
+.thanks{
+    float: right;
+    font-size: 10px;
 }

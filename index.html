@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet" />
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -35,7 +37,7 @@
             <h1>Cruise Queen</h1>
             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
                 industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
-                scrambled it to make a type specimen book./p>
+                scrambled it to make a type specimen book.</p>
         </div>
 
 
@@ -43,16 +45,16 @@
             <h3>Book Ocean Time</h3>
             <div class="input-group">
                 <label for="">Flying From</label>
-                <input class="inp-style" type="text" name="" placeholder="Dhaka, Bangladesh">
+                <input id="fromPlace" class="inp-style" type="text" name="" placeholder="Dhaka, Bangladesh">
             </div>
             <div class="input-group">
                 <label for="">Flying To</label>
-                <input class="inp-style" type="text" name="" placeholder="New York, United States">
+                <input id="toPlace" class="inp-style" type="text" name="" placeholder="New York, United States">
             </div>
             <div class="inputs">
                 <div class="input-group">
                     <label" for="">Departure</label>
-                        <input class="inp-style" type="date" name="">
+                        <input id="departure" class="inp-style" type="date" name="">
                 </div>
                 <div class="input-group">
                     <label for="">Return</label>
@@ -93,7 +95,7 @@
                         <p>Charge 10% VAT</p>
                     </div>
                     <div class="right">
-                        <p>$ <span id="tax">0</span> </p>
+                        <p>$ <span id="tax">0</span></p>
                     </div>
                 </div>
                 <hr>
@@ -110,101 +112,28 @@
         </div>
     </main>
     <div id="secondPart" class="container">
-        <h2 style="color: tomato;">Congratulations!!</h2>
-        <p>Your Ticket Has been booked and your total expenditure is $ <span id="amount">0</span></p>
-        <h4>Have a Safe Journey.</h4><br><br><br>
-        <h6 style="color: teal;">Thanks For Choosing Us.</h6>
-
+        <div class="container">
+            <h2 class="confirm">Ticket Confirmation</h2>
+            <p class="secondPage">From: <span id="from"></span> </p>
+            <p class="secondPage">To: <span id="to"></span> </p>
+            <p class="secondPage">Date: <span id="dateTime"></span> </p>
+            <p class="secondPage">First Class Ticket: <span id="FirstClassFinal"></span> </p>
+            <p class="secondPage">Economy Class Ticket: <span id="EconomyClassFinal"></span></p>
+            <p class="secondPage">Subtotal Fare:$<span id="subTotalFare"></span> </p>
+            <p class="secondPage">Tax:$ <span id="taxFare"></span> </p>
+            <p class="secondPage">Total Fare: $<span id="amount">0</span></p>
+        </div>
+        <button id="confirmBtn" class="btn btn-success">Confirm Ticket</button>
+    </div>
+    <div id="finalPart" class="container finalPage">
+        <span><i class="fas fa-check-circle SuccessSign"></i></span>
+        <h2 style="color: tomato;">Congratulations!!!</h2>
+        <h3>Your Booking has been successfully confirmed.</h3>
+        <br><br><br>
+        <h6 class="thanks">Thanks for choosing Cruise Queen</h6>
     </div>
 
-    <script>
-        const fClassPlusBtn = document.getElementById('fClassPlusBtn');
-        fClassPlusBtn.addEventListener('click', function () {
-            updateCount('firstClass', 1)
-            updateSubTotal()
-            totalTax()
-            totalPrice()
-        })
-        const fClassMinusBtn = document.getElementById('fClassMinusBtn');
-        fClassMinusBtn.addEventListener('click', function () {
-            updateCount('firstClass', -1)
-            updateSubTotal()
-            totalTax()
-            totalPrice()
-        })
-        const economyPlusBtn = document.getElementById('eClassPlusBtn');
-        economyPlusBtn.addEventListener('click', function () {
-            updateCount('economyClass', 1)
-            updateSubTotal()
-            totalTax()
-            totalPrice()
-        })
-        const economyMinusBtn = document.getElementById('eClassMinusBtn');
-        economyMinusBtn.addEventListener('click', function () {
-            updateCount('economyClass', -1)
-            updateSubTotal()
-            totalTax()
-            totalPrice()
-        })
-
-        const bookBtn =document.getElementById('bookNow');
-        bookBtn.addEventListener('click',function(){
-            const congrats=document.getElementById('secondPart');
-            const mainPart=document.getElementById('mainPart');
-            mainPart.style.display = "none";
-            document.getElementById('amount').innerText=totalCostCalculate();
-            congrats.style.display = 'block';
-           
-        })
-
-
-
-        function updateCount(id, k) {
-            const cnt = document.getElementById(id).value;
-            const cntNum = parseInt(cnt);
-            var currentCnt = cntNum + k;
-            var finalCnt;
-            if(currentCnt>=0){
-                finalCnt=currentCnt;
-            }
-            else{
-                finalCnt=0;
-            }
-            document.getElementById(id).value = finalCnt;
-            
-        }
-       function subTotalPrice(){
-           const firstClassFinal =document.getElementById('firstClass').value;
-           const firstClassFinalNum=parseInt(firstClassFinal);
-           const firstClassCost=150*firstClassFinalNum;
-           const economyFinal = document.getElementById('economyClass').value;
-           const economyFinalNum = parseInt(economyFinal);
-           const economyClassCost = 100*economyFinalNum
-           const subTotalCost=firstClassCost+economyClassCost
-           return subTotalCost
-       }
-       function updateSubTotal(){
-           document.getElementById('subTotal').innerHTML=subTotalPrice();
-       }
-
-       function taxAmount(){
-           const taxCost= subTotalPrice()*0.1;
-           return taxCost
-       }
-
-       function totalTax(){
-           document.getElementById('tax').innerText=taxAmount()
-       }
-
-       function totalCostCalculate(){
-           const totalAmount = subTotalPrice()+ taxAmount();
-           return totalAmount
-       }
-       function totalPrice(){
-        document.getElementById('total').innerText = totalCostCalculate();
-       }
-
-    </script>
+    <script src="scripts.js"></script>
 
 
 </body>
