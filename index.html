@@ -12,7 +12,7 @@
     <!-- Stylesheet -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet" />
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./style.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="./images/ship.png" type="image/x-icon">
@@ -54,8 +54,8 @@
             </div>
             <div class="inputs">
                 <div class="input-group">
-                    <label" for="">Departure</label>
-                        <input id="departure" class="inp-style" type="date" name="">
+                    <label" for="">Departure</label><br>
+                    <input id="departure" class="inp-style" type="date" name="">
                 </div>
                 <div class="input-group">
                     <label for="">Return</label>
@@ -65,7 +65,7 @@
             <div class="input-group f-class">
                 <div>
                     <label for="">First Class ($150)</label>
-                    <input id="firstClass" class="inp-style inp-width" type="number" name="" value="0">
+                    <input id="firstClass" class="inp-style inp-width" type="" name="" value="0">
                 </div>
                 <br><br><br>
                 <button class="btn btn-default button" id="fClassPlusBtn">+</button>
@@ -75,7 +75,7 @@
             <div class="input-group f-class">
                 <div>
                     <label for="">Economy ($100)</label>
-                    <input id="economyClass" class="inp-style inp-width" type="number" name="" value="0">
+                    <input id="economyClass" class="inp-style inp-width" type="" name="" value="0">
                 </div>
                 <button class="btn btn-default button" id="eClassPlusBtn">+</button>
                 <button class="btn btn-default button" id="eClassMinusBtn">-</button>
@@ -125,7 +125,7 @@
             <p class="secondPage">Economy Class Ticket: <span id="EconomyClassFinal"></span></p>
             <p class="secondPage">Subtotal Fare:$<span id="subTotalFare"></span> </p>
             <p class="secondPage">Tax:$ <span id="taxFare"></span> </p>
-            <p class="secondPage">Total Fare: $<span id="amount">0</span></p>
+            <p id="totalCostPage2" class="secondPage">Total Fare: $<span id="amount">0</span></p>
         </div>
         <button id="confirmBtn" class="btn btn-success">Confirm Ticket</button>
     </div>
@@ -136,6 +136,7 @@
         <span><i class="far fa-check-circle SuccessSign"></i></span>
         <h2 style="color: tomato;">Congratulations!!!</h2>
         <h3>Your Booking has been successfully confirmed.</h3>
+        <h4 style="color: rgb(109, 6, 109);">Have a Safe Journey!</h4>
         <br><br><br>
         <h6 class="thanks">Thanks for choosing Cruise Queen</h6>
     </div>

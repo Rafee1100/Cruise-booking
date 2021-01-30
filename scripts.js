@@ -45,15 +45,15 @@ bookBtn.addEventListener('click', function () {
     const congrats = document.getElementById('secondPart');
     const mainPart = document.getElementById('mainPart');
     mainPart.style.display = "none";
-    document.getElementById('amount').innerText = totalCostCalculate();
     congrats.style.display = 'block';
     document.getElementById('from').innerText = document.getElementById('fromPlace').placeholder;
     document.getElementById('to').innerText = document.getElementById('toPlace').placeholder;
     document.getElementById('dateTime').innerText = Date();
     document.getElementById('FirstClassFinal').innerText = document.getElementById('firstClass').value;
     document.getElementById('EconomyClassFinal').innerText = document.getElementById('economyClass').value;
-    document.getElementById('subTotalFare').innerText = document.getElementById('subTotal').innerText;
-    document.getElementById('taxFare').innerText = document.getElementById('tax').innerText;
+    document.getElementById('subTotalFare').innerText = subTotalPrice();
+    document.getElementById('taxFare').innerText = taxAmount();
+    document.getElementById('amount').innerText = totalCostCalculate();
 })
 
 //Ticket Confirmation Button event Function
